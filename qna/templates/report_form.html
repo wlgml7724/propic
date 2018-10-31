@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "신고.css" %}{% endblock %}
+
+{% block content %}
+
+
+ <!-- 경로 -->
+<div class="container">
+		<nav id="smnav">
+		 <nav id="smnav">
+		  <ol class="breadcrumb" style="background: white;">
+		    <li class="breadcrumb-item"><a href="{%url 'home'%}" style="color: red;">홈</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">고객센터</li>
+		    <li class="breadcrumb-item active" aria-current="page">신고하기</li>
+		    <li class="breadcrumb-item active" aria-current="page">저작권</li>
+		  </ol>
+		</nav>
+
+	
+		<!-- 제목 -->
+		<h1 class="top_title">명예훼손 신고하기</h1>
+		<hr>
+<!-- 내용 -->		
+
+
+		<div class="nav-side">
+
+				<ul class="nav flex-column">
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:report'%}">신고하기</a>
+				  </li>
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:copyright'%}">저작권</a>
+				  </li>
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:slash'%}">음란물</a>
+				  </li>
+				</ul>
+		</div>
+
+		<p id="long_t">명예훼손, 초상권, 개인정보 침해 등으로 인해, 게시물 차단 신청을 메일 또는 팩스/우편으로 접수하시고자 하신다면,
+"게시물차단 신청서" 와 신고자에 따른 "증명서류"를 반드시 첨부하여 보내주시기 바랍니다.
+2014년 8월 7일부터 개인정보 보호법 개정사항에 따라 신분증 사본을 첨부할 경우 주민등록번호 뒷자리 6개를 보이지 않도록 마스킹
+(가림처리)하여 주세요. 만약 마스킹(가림처리)되지 않은 서류가 접수될 경우 즉시 파기되며 신고 및 복원 요청은 정상 접수되지 않습니다.</p>
+
+<!-- 입력란 -->
+
+		<form class="form-horizontal" id="c_box">
+			 
+			<fieldset class="aligned">
+			
+
+		    <div class="form-group">
+		      <label for="inputname">이름</label>
+		      <!-- <input type="text" class="form-control" id="inputname" placeholder="이름"> -->
+		      <span>{{ form.reporter }}</span>
+		    </div>
+
+
+		    <div class="form-group">
+		      <label for="inputemail">이메일</label>
+		      <!-- <input type="email" class="form-control" id="inputemail" placeholder="propic@gmail.com"> -->
+<!-- 		      <span>@</span>
+		      <select id="inputState" class="form-control form-control-sm" placeholder="선택하세요." required> -->
+<!-- 				        <option selected>naver.com</option>
+				        <option>nate.com</option>
+			  </select> -->
+			  <span>{{ form.reporter_email }}</span>
+			  <div class="invalid-feedback">Example invalid custom select feedback</div>
+		    </div>
+
+
+
+		    <div class="form-group">
+		      <label for="inputnum">번호</label>
+		      <!-- <input type="text" class="form-control" id="inputnum" placeholder="번호"> -->
+		      <span>{{ form.reporter_number }}</span>
+		    </div>
+
+		    <div class="form-group">
+		      <label for="inputCity">게시글 주소 및 사진</label>
+		      <!-- <input type="text" class="form-control" id="inputCity"> -->
+		      <span>{{ form.reporter }}</span>
+		    </div>
+			<div class="form-group">
+		      <label for="inputState">신고사유</label>
+		      <!-- <select id="inputState" class="form-control form-control-sm" required>
+		        <option selected>저작권 침해</option>
+		        <option>초상권 침해</option> -->
+		       <span>{{ form.report_text }}</span> 
+		      </select>
+		      <div class="invalid-feedback">Example invalid custom select feedback</div>
+		    </div>
+
+
+		    <div class="custom-file">
+		      <label>첨부파일</label>
+			  <!-- <input type="file" class="custom-file-input" id="customFile" required> -->
+			  <!-- <label class="custom-file-label" for="customFile">파일을 선택하세요.</label> -->
+			  <span>{{ form.report_file }}</span>
+			  <div class="invalid-feedback">Example invalid custom file feedback</div>
+			</div>
+
+			<div class="form-group">
+		    <div class="form-check">
+		      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+		      <label class="form-check-label" for="invalidCheck">
+		        이용약관에 동의하세요.
+		      </label>
+		      <div class="invalid-feedback">
+		        제출 전 동의는 필수 .항목입니다.
+		      </div>
+		    </div>
+		  	</div>
+		  	<button class="go" type="submit">제출하기</button>
+		
+			</fieldset>
+		</form>
+	
+
+		
+</div>
+
+</body>
+
+<!-- 
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script> -->
+
+</html>
+
+
+{% endblock %}

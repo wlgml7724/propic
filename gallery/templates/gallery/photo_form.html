@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}photo_form.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static 'photo/photo.css' %}
+
+{% endblock %}
+
+{% block content %}
+<div class="formcontent">
+    <h1 style="text-align: center; font-size: 30px; margin-top: 20px;">사진 추가 </h1>
+    {% if form.is_multipart %}
+    <form action="." enctype="multipart/form-data" method="post">
+    {% else %}
+    <form action="." method="post">
+    {% endif %}
+    {% csrf_token %}
+    <form action="." method="post">
+    {% if form.errors %}
+    <p class="errornote">Wrong! Please correct the error(s) below.</p>
+    {% endif %}
+
+    <p style="text-align: center;">사진을 올려 보세요 </p>
+
+    <fieldset class="aligned">
+        <div class="form-row">
+            <span>{{ form.img.label_tag }} </span>
+            <span>{{ form.img }}</span>
+        </div>
+
+        <div class="form-row">
+            <span>{{ form.name.label_tag }} </span>
+            <span>{{ form.name }}</span>
+        </div>
+
+        <div class="form-row">
+            <span>{{ form.content.label_tag }} </span>
+            <span>{{ form.content }}</span>
+        </div>
+
+        <div class="form-row">
+            <span>{{ form.price.label_tag }} </span>
+            <span>{{ form.price }}</span>
+        </div>
+
+        <div class="form-row">
+            <span>{{ form.tag.label_tag }}</span>
+            <span>{{ form.tag }}</span>
+        </div>
+        <div class="form-row">
+            <span>{{ form.genre.label_tag }} </span>
+            <span>{{ form.genre }}</span>
+        </div>
+        
+
+    </fieldset>
+    <div id="loading"><img id="loading-image" src="{% static 'img/5.gif' %}" alt="Loading..." /></div>
+
+    <div class="submit-row" >
+        <input type="submit"  value="Submit" onclick="myFunction(this)" id ="next">
+    </div>
+    <script type="text/javascript">
+        function myFunction(self) {
+            alert("dsfasdf");
+            save(self, *args, **kwargs):
+        }
+    </script>
+    <script type="text/javascript">document.getElementById('id_album').focus();</script>
+    <script>
+    $(document).ready(function() {
+        $('#loading').hide();
+        $('#next').submit(function(){
+            $('#loading').show();
+            return true;
+        });
+    });
+    </script>
+
+
+    </form>
+</div>
+{% endblock %}
+

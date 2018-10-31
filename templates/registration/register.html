@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}registㅇer.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+<div id="content_log">
+
+    <form method="post" action="."> {% csrf_token %}
+    
+    <!--에러 발생-->
+     {% for error in form.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    
+    <div class="log_explain">
+        <h1>회원가입</h1>
+        <br><br>
+    </div>
+
+    <fieldset class="aligned">
+        <!--아이디 입력-->
+        <div class="form-row">
+            <p class="reg-label">아이디</p>  {{ form.username }} 
+            <!-- <input class="reg_check" type="button" name="ID_check" value="ID확인"> -->
+            <!-- <p>아이디는 영문과 숫자만을 이용하여 작성해주세요. -->
+        </div>
+
+        <!--비밀번호 입력-->
+        <div class="form-row">
+            <p class="reg-label">비밀번호</p> {{ form.password1 }}
+            <!-- <span>아이디와 유사하지 않은 8자리 이상의 비밀번호</span> -->
+        </div>
+
+        <!--비밀번호 재입력-->
+        <div class="form-row">
+            <p class="reg-label">비밀번호 확인</p> {{ form.password2 }}
+            <!-- <span>동일한 비밀번호를 다시한번 입력해주세요.</span> -->
+        </div>
+
+        
+
+        <div style="border-bottom: 1.5px solid #eee; width: 850px; margin-bottom: 20px">
+        <!-- 이거는 선만드려고 한거  -->
+        </div>
+
+        <!--닉네임 입력-->
+        <div class="form-row2 form-row">
+            <p class="reg-label">이름(성/이름) </p> {{ form.first_name }} {{ form.last_name }}  
+        </div>
+
+        <!-- 생년월일, 성별 -->
+        <div class="form-row">
+            <p class="reg-label">생년월일</p>
+            {{ form.birth }}
+            
+        </div>
+            
+
+        <div class="form-row form-gender">
+            <p class="reg-label">성별</p>{{ form.isMale }}
+
+            <small style="color: grey">{{ form.isMale.help_text }}</small>
+            <!-- <input class="sex_check" type="button" name="male" value="남자">
+            <input class="sex_check" type="button" name="female" value="여자"> -->
+            <!-- <input class="sex_check" type="checkbox" name="female" value="여자" readonly="남자"> -->
+        </div>
+        
+
+        <!-- <div class="form-row2 form-row">
+            <input type="radio hidden" name="gender" id="gender1" checked>
+            <label for="gender1">남자</label>
+            <input type="radio hidden" name="gender" id="gender2">
+            <label for="gender2">여자</label>
+        </div> -->
+
+        <!--전화번호 입력-->
+        <div class="form-row" >
+            <p class="reg-label">전화번호</p> {{ form.phone }}
+        </div>
+
+        <!-- 이메일 -->
+        <div class="form-row">
+            <p class="reg-label">이메일</p> {{ form.email }}
+        </div>
+    </fieldset>
+    
+    
+    <div class="submit-row">
+        <input type="submit" value="가입하기"/>
+        <a href="{% url 'home' %}">
+            <input type="button" value="취소"/>
+        </a>
+    </div>
+    <script type="text/javascript">document.getElementById('id_username').focus();</script>
+    </form>
+
+</div>
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+
+{% endblock %}
+</body>
+
+</html>

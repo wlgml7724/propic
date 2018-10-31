@@ -1,0 +1,419 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+div#menu a.gallery{
+    color: red;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+button.up a{
+    text-decoration: none;
+    color: white;
+}
+button.up a:hover{
+    text-decoration: none;
+    color: white;
+}
+.photo_add a{
+    text-decoration: none;
+}
+.photo_add a:hover{
+    text-decoration: none;
+    color: red;
+}
+
+.table ul li{
+    text-decoration: none;
+
+}
+
+#themecontent4{
+    display: block;
+    position: relative;
+    margin-top: 100px;
+    width: 1200px;
+    min-height: 1200px;
+    margin-bottom: 100px;
+    padding: 0 30px;
+    /*border: 1px solid red;*/
+}
+
+
+#price_box{
+    font-size: 14px;
+    font-weight: lighter;
+    border: 1px solid gray;
+    padding: 10px 17px;
+}
+
+/*검색창*/
+#search{
+    height: 40px;
+    width: 400px;
+    border: 1.5px solid #ff8080;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+    top: 35px;
+    /*-ms-input-placeholder{color: black;}
+    -webkit-input-placeholder{color: black;}
+    -moz-placeholder{color: black;}*/
+    
+}
+#search input{
+    font-size: 16px;
+    height: 30px;
+    margin: 3px 20px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+
+#search button{
+    width: 70px;
+    height: 100%;
+    border: 0px;
+    font-size: 12px;
+    background-color: #ff8080;
+    outline: none;
+    float: right;
+    color: white;
+    border-radius: 0 8px 8px 0;
+}
+
+ 
+.gallery_content{
+    position: relative;
+    width: 90%;
+    top: 100px;
+}
+
+/* Create two equal columns that sits next to each other */
+.photo_detail_row .photo_detail_column{
+    float: left;
+    margin: 30px 10px;
+    width: 260px;
+    height: auto;
+    text-align: center;
+    
+    position: relative;
+    top: 50px;
+    /*position: absolute;*/
+    /*border: 1px solid red;*/
+}
+
+.photo_detail_row .photo_detail_column img{
+    width: 260px;
+    height: auto;
+    position: relative;
+    /*top:15px;  */
+    /*border: 1px solid red; */
+    /*opacity: 0.7;*/
+
+}
+.photo_detail_column:hover img{
+    opacity: 0.7;
+}
+/*__________________________________________*/
+
+/*____________________________________*/
+table{
+    background: white;
+}
+.imgc{
+    width: 40%;
+    /*float: left;*/
+}
+.photo-detail img{
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 10px; 
+    float: left;
+}
+
+#gallery_detail_sodyd{
+    position: relative;
+    left: 50px;
+    top: 50px;
+    width: 40%;
+    /*border: 1px solid red;*/
+    font-size: 20px;
+}
+
+/*.g_d_user{
+    font-size: 20px;
+}
+*/
+#gallery_detail_sodyd p{
+    padding: 10px 0;
+}
+/*.g_d_date{
+    color: gray;
+    font-size: 15px;
+}
+.g_d_img_content{
+    width: 90%;
+    line-height: 2;
+    font-size: 15px;
+}
+.g_d_category{
+    font-size: 16px;
+}
+*/
+
+#g_d_price{
+    font-size: 37px;
+    margin-left: 40%;
+    /*float: right;    /*width: 90%;*/
+}
+
+.buy_nav{
+    position: relative;
+    top: 40px;
+    float: right;
+    right: 80px;
+}
+
+/*____________________________*/
+.formcontent{
+    border:2px solid black;
+    position: relative;
+    top:100px;
+    border-radius: 10px;
+    width: 60%;
+    padding: 20px;
+}
+.aligned{
+    position: relative;
+    top: 30px;
+    left: 20%;
+    font-size: 15px;
+}
+.form-row{
+    position: relative;
+    width: 500px;
+    float: left;
+    /*border: 1px solid red;*/
+    
+}
+.form-row span{
+    width: 200px;
+    /*border: 1px solid red;*/
+}
+.submit-row input{
+    width: 100px;
+    height: 50px;
+    border: 0px;
+    font-size: 12px;
+    background-color: #ff8080;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    left: 80%;
+}
+
+#comment{
+    margin-top: 50px;
+    width: 80%;
+}
+
+.wp{
+    width: 80px;
+    height: 30px;
+    border: 0px;
+    font-size: 12px;
+    background-color: #ff8080;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    left: 45%;
+    
+}
+
+
+
+.btn-group{
+    margin: 60px 0 0 80px;
+}
+
+
+
+
+
+/*//가져다가 붙인거*/
+
+/*body {
+    font-family: "HS봄바람체2.0";
+    font-size: 14px;
+}
+
+@font-face{
+    font-family: "HS봄바람체2.0";
+    src: url(font/HS봄바람체2.0.ttf) format('truetype');
+}*/
+/****** PAGE STRUCTURE ******/
+
+/* scroll변경시 navigation 효과  */
+.scroll_nav {
+    opacity: 0.85;
+    background: #aaa;
+}
+
+/* 글씨 세부효과 */
+nav li.nav-item a.nav-link{
+    display: block;
+    font-size : 17px;
+    font-family: /*'Encode Sans Condensed'*/, sans-serif;
+    color: white!important;
+}
+/*.collapse > ul .nav-item a.nav-link:hover*/
+
+nav li.nav-item:hover ul > li.active{
+    background: white;
+}
+nav li.active > a.nav-link,
+nav li.nav-item:hover a.nav-link{
+    color: black!important;
+    background: white;
+    opacity: .9;
+    font-size: 19px;
+    border-bottom: 3px solid red; 
+}
+
+nav li.dropdown div.dropdown-menu a{
+    width: 150px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 11px;
+}
+nav li.dropdown div.dropdown-menu a.mypage{
+    font-size : 13px;
+}
+
+
+/***********gallery_search_end***************************************/
+
+
+.outline{
+  outline: 2px solid red;
+}
+.outline2{
+  outline: 2px solid green;
+}
+
+/*-----------Gallery all-----------------------------------------------------*/
+#content .col{
+  margin-bottom: 50px;
+}
+div.gallery_left{
+  float: left;
+  width: 55%;
+}
+div.gallery_left > p{
+  padding: 2rem 2rem 0;
+  font-size: 15px;
+}
+div.detail_img{
+  width: 95%;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.gallery-detail-info{
+  /*outline: 1px solid #ddd;*/
+  padding: 30px 50px;
+  margin: 5px 20px;
+}
+.gallery-detail-info li{
+  font-size: 13px;
+  margin: 10px;
+  list-style: none;
+}
+.gallery-detail-info label{
+  width: 70px;
+}
+.gallery-detail-info > ul .context label{
+  width: 100%
+}
+.gallery-detail-info > ul .context p{
+  padding: 5px 0 10px 20px;
+}
+.gallery_right{
+  float: right;
+  padding: 30px;
+  width: 45%;
+}
+.gallery_left .btn-group{
+  margin-top: 50px;
+  margin-left: 8%;
+  
+}
+@media(max-width: 480px){
+  .gallery_left .btn-group{
+    margin-left: 8%;
+  }
+}
+.gallery_left .btn-group .quality-select{
+  padding: 1rem 3rem; 
+  font-size: 1.5rem;
+}
+.gray-divider{
+  height:0;
+  margin:1rem 0;
+  overflow:hidden;
+  border-top:1px solid #ddd
+}
+.select-price{
+  margin: 80px 0 30px 0 ;
+  font-size: 20px;
+  text-align: right;
+  padding-right: 20px;
+}
+.gallery_left div.align{
+  margin-top: 20px;
+  margin-left: 30%;
+}
+.gallery_left div.btn-group .btn-outline-danger{
+  padding: 10px 40px; 
+  font-size: 20px;
+}
+.gallery_left div.btn-group .btn-danger{
+  padding: 10px 40px; 
+  font-size: 20px;
+}
+.gallery_left div.btn-group .btn-outline-success{
+  padding: 10px 40px;
+  font-size: 20px;
+}
+.gallery_left div.btn-group .btn-success{
+  padding: 10px 40px; 
+  font-size: 20px;
+}
+
+
+.detail-inside{
+    width: 80%; 
+    
+}
+.service-l{
+    margin-top: 80px;
+    padding-left: 8px;
+    width: 100%;
+}
+#reportb{
+    margin-left: 320px;
+}
+label{
+    font-size: 15px;
+}

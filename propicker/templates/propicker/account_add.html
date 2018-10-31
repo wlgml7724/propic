@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+
+{% block title %}.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "mypic/mypic.css" %}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Button trigger modal -->
+{% if form.is_multipart %}
+    <form action="." enctype="multipart/form-data" method="post">
+    {% else %}
+    <form action="." method="post">
+    {% endif %}
+    {% csrf_token %}
+    <form action="." method="post">
+    {% if form.errors %}
+    <p class="errornote">Wrong! Please correct the error(s) below.</p>
+    {% endif %}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="margin-top:300px; margin-left: 50%; height:  20px;">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">계좌 추가하기</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"> </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{ form.user_account_num.label_tag }}  {{ form.user_account_num }}
+<br>
+        {{ form.user_account_bank.label_tag }}  {{ form.user_account_bank }}
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="submit-row">
+        <input type="submit" value="Submit" class="btn btn-primary"onclick="myFunction(this)">
+    </div>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

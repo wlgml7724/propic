@@ -1,0 +1,166 @@
+/*  "**"표시가 많은건 전체적인 구조를 위해서 기존에 있던 css, 
+  그 외의 주석들은 css변경에 참고하기 위한 주석임!!  
+  css수정할 때 잘 모르는거는 무조건 지우지 말고 주석처리 해놓고 수정할 것 ( 잘못되면 다시 원상복구 할 수 있도록 )
+  불안하면 수정한 사항 모두 주석으로 메모해두기!
+  */
+
+ *{
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    font-family: "HS봄바람체2.0";
+    font-size: 14px;
+}
+
+@font-face{
+    font-family: "HS봄바람체2.0";
+    src: url(font/HS봄바람체2.0.ttf) format('truetype');
+}
+.logo{
+    position: absolute;
+    height: 50px;
+    top: -5px;
+}
+
+/****** PAGE STRUCTURE ******/
+nav.navbar{
+    background: black;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+/* scroll변경시 navigation 효과  */
+.scroll_nav {
+    opacity: 0.7;
+    background: #aaa;
+}
+
+/* 로고  */
+nav a.navbar-brand{
+    margin-left: 10%;
+}
+.outline{
+    outline: 3px solid red;
+}
+
+.collapse > ul.navbar-nav{
+    margin-left: 35%;
+}
+/* 검색창 효과 */
+.collapse > ul .nav-item form {
+    top: 2px;
+    margin: auto 0;
+    padding: 0;
+    padding: 8px 5px 6px;
+}
+.collapse > ul .nav-item form > input{
+    background: #ddd;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+.collapse > ul .nav-item form > button{
+    padding: 9px;
+}
+/* 글씨 세부효과 */
+.collapse > ul .nav-item a.nav-link{
+    font-size : 20px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    margin: 0 10px;
+    color: white;
+}
+.collapse > ul .nav-item a.nav-link:hover{
+    color: #ED0000;
+}
+
+/*로그인 관련페이지에 대한 틀*/
+
+
+/******* HEADER *******/
+/*logo*/
+
+
+.welcome {
+    display: table-cell;
+    float: right;
+    /*padding: 10px 30px;*/
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+   position: relative;
+   right: 12%;
+   top: 30px;
+}
+.welcom li{
+    padding: 0 30px;
+}
+
+.welcome > li {
+    display: inline;
+    float:left;
+    padding: 0 10px;    
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+}
+.welcome > li:hover a{
+    color: #ED0000;
+    text-decoration: none;
+}
+
+/*환영합니다 라인 css*/
+.welcome a:link, .welcome a:visited {
+    color: white;
+}
+
+
+
+/*---------------전체페이지에 대한 설정-------------------*/
+/* 전체 블록 -> 양쪽 여백 주는 것, 모든페이지에 기본으로 content설정할 것 */
+div#content {
+    position: relative;
+    top: 120px;
+    width: 90%;
+    left: 5%;
+    padding-bottom: 100px;
+ }
+
+ /* 모든 페이지에 footer들어감 */
+div#footer {
+    position: relative;
+    outline: 3px dashed black;
+    margin-bottom: 50px;
+}
+
+/******** LINK ********/
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/********* TABLE *********/
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    line-height: 18px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+    padding: 5px 15px;
+    font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+table.change-list, table.change-list th, table.change-list td{
+    border : 1px solid #ccc;
+}
+
+
+button a{
+    width: 100px;
+    height: 30px;
+}
+
+

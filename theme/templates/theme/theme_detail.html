@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}photo_detail.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "theme/theme.css" %}{% endblock %}
+
+{% block content %}
+<div class="themecontent1">
+    <div style="width: auto; height: 300px; overflow: hidden">
+        <img src="{{ object.theme_img.url }}" class="theme_detail_image"/>
+    </div>
+    
+    <p class="theme_detail_title"> # {{ object.theme_title }}</p>
+    <p class="theme_detail_content">{{ object.theme_content }}</p>
+</div>
+
+
+
+<div class="themecontent4">
+    <div class="themephoto_add">
+            <a href="{% url 'theme:theme_update' object.id %}">
+                <p>+</p>
+            </a>
+    </div>
+    {% for gallery in object.photo_id.all %}
+    <div class="theme_detail_row"> 
+        <div class="theme_detail_column">
+            <a href="{% url 'gallery:photo_detail' gallery.id %}">
+                <img class="thumbnail2" src="{{ gallery.img.url }}" />
+                <div class="detail_overlay">
+                    <div class="detail_text">사진 구매하러가기 </div>
+                </div>
+            </a>    
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    <div id="comment" >
+             {% load disqus_tags %}
+            {% disqus_show_comments %}
+    </div>
+
+
+
+{% endblock %}
+
+

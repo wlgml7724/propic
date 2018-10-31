@@ -1,0 +1,402 @@
+ *{
+    margin: 0 auto;
+    padding: 0;
+}
+body {
+    font-family: "HS봄바람체2.0";
+    font-size: 14px;
+}
+
+@font-face{
+    font-family: "HS봄바람체2.0";
+    src: url(font/HS봄바람체2.0.ttf) format('truetype');
+}
+/****** PAGE STRUCTURE ******/
+nav.navbar{
+    top: 1px;
+    background: black;
+    height: 50px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+/* scroll변경시 navigation 효과  */
+.scroll_nav {
+    opacity: 0.85;
+    background: #aaa;
+}
+
+/* 로고  */
+nav a.navbar-brand{
+    margin-left: 5%;
+    overflow: hidden;
+}
+nav > div{
+    margin-right: 5%;
+}
+.logo{
+    position: relative;
+    top: -10%;
+    height: 45px;
+}
+.outline{
+    outline: 3px solid red;
+}
+.outline2{
+    outline: 3px solid yellow;
+}
+.outline3{
+    outline: 3px solid green;
+}
+.collapse{
+    justify-content: flex-end;
+}
+
+nav li.nav-item{
+    min-width: 150px;
+    text-align: center;
+}
+
+/* search menu */
+nav li.nav-item form {
+    padding: 12px 10px;
+}
+nav li.nav-item form > input{
+    background: #ddd;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+nav li.nav-item form > button{
+    padding: 9px;
+}
+
+/* 글씨 세부효과 */
+nav li.nav-item a.nav-link{
+    display: block;
+    font-size : 17px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: white!important;
+}
+/*.collapse > ul .nav-item a.nav-link:hover*/
+
+nav li.nav-item:hover ul > li.active{
+    background: white;
+}
+nav li.active > a.nav-link,
+nav li.nav-item:hover a.nav-link{
+    color: black!important;
+    background: white;
+    opacity: .9;
+    font-size: 19px;
+    border-bottom: 3px solid red; 
+}
+
+nav li.dropdown div.dropdown-menu a{
+    width: 150px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 11px;
+}
+nav li.dropdown div.dropdown-menu a.mypage{
+    font-size : 13px;
+}
+/*---------------전체페이지에 대한 설정-------------------*/
+/* 전체 블록 -> 양쪽 여백 주는 것, 모든페이지에 기본으로 content설정할 것 */
+#content {
+  position: relative;
+  width: 90%;
+  top: 60px;
+}
+#button{
+	background: #d5d5d5;
+	font-size: 13px;
+	padding: 10px;
+	border-radius: 6px;
+}
+#search{
+top: 20px;
+margin: 20px auto 0 ;
+width: 500px;
+}
+#all_search{
+  border-radius: 5px;
+  padding: 10px;
+  width: 400px;
+  text-align: center;
+}
+#header ul.menu li{
+  display: inline-block;
+  margin-right: 1rem;
+  line-height: 5rem;
+}
+#header ul.menu li a{
+  color: white;
+  text-decoration: none;
+  font-family: "함초롬돋움";
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+
+
+
+/***********gallery_search***********************/
+div.photoGrid{
+  margin-top: 4rem;
+}
+div.photoGrid.row {
+  position: relative;
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  margin: 0 4px;
+  box-sizing: border-box;
+}
+#content div.column {
+    -ms-flex: 25%; /* IE 10 */
+    flex: 25%;
+    padding: 0 4px;
+}
+#content div.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+#content div.column img:hover {
+  opacity: 0.5;
+}
+/*.photoGrid h4{
+  position: fixed;
+  top: -.5rem;
+  margin-right: 5%;
+  background: white;
+  width: 90%;
+  text-align: right;
+  font-weight: bold
+}
+.photoGrid h4 span{
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.photoGrid h4 span:hover{
+  color: red;
+}*/
+h4{
+  position: fixed;
+  top: 5rem;
+  left: 5rem;
+  background: white;
+  font-weight: bold
+  z-index: 100;
+  padding: 1rem;
+}
+h4 span{
+  margin-right: 2rem;
+}
+h4 div{
+  float: right;
+}
+/***********gallery_search_end***************************************/
+
+
+.outline{
+  outline: 2px solid red;
+}
+.outline2{
+  outline: 2px solid green;
+}
+
+/*-----------Gallery all-----------------------------------------------------*/
+#content .col{
+  margin-bottom: 50px;
+}
+div.gallery_left{
+  float: left;
+  width: 55%;
+}
+div.gallery_left > p{
+  padding: 2rem 2rem 0;
+  font-size: 15px;
+}
+div.detail_img{
+  width: 95%;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.gallery-detail-info{
+  /*outline: 1px solid #ddd;*/
+  padding: 30px 50px;
+  margin: 5px 20px;
+}
+.gallery-detail-info li{
+  font-size: 13px;
+  margin: 10px;
+  list-style: none;
+}
+.gallery-detail-info label{
+  width: 70px;
+}
+.gallery-detail-info > ul .context label{
+  width: 100%
+}
+.gallery-detail-info > ul .context p{
+  padding: 5px 0 10px 20px;
+}
+.gallery_right{
+  float: right;
+  padding: 20px;
+  width: 45%;
+}
+.gallery_left .btn-group{
+  margin-top: 70px;
+  margin-left: 15%;
+}
+@media(max-width: 480px){
+  .gallery_left .btn-group{
+    margin-left: 15%;
+  }
+}
+.gallery_left .btn-group .quality-select{
+  padding: 1rem 3rem; 
+  font-size: 1.5rem;
+}
+.gray-divider{
+  height:0;
+  margin:1rem 0;
+  overflow:hidden;
+  border-top:1px solid #ddd
+}
+.select-price{
+  margin: 80px 0 30px 0 ;
+  font-size: 20px;
+  text-align: right;
+  padding-right: 20px;
+}
+.gallery_left div.align{
+  margin-top: 20px;
+  margin-left: 30%;
+}
+.gallery_left div.btn-group .btn-outline-danger{
+  padding: 10px 40px; 
+  font-size: 20px;
+}
+.gallery_left div.btn-group .btn-danger{
+  padding: 10px 40px; 
+  font-size: 20px;
+}
+.gallery_left div.btn-group .btn-outline-success{
+  padding: 10px 40px;
+  font-size: 20px;
+}
+.gallery_left div.btn-group .btn-success{
+  padding: 10px 40px; 
+  font-size: 20px;
+}
+/*---------사용자 페이지 -----*/
+.service{
+  padding: 2rem 20px;
+  margin-top: 2rem;
+}
+.service > div > span{
+  font-size: 15px;
+}
+.service .btn-outline-danger{
+  border-radius: 20px;
+  font-size: 15px;
+}
+.service .btn-outline-danger:hover{
+  opacity: .7;
+}
+.service button.report{
+  float: right;
+  font-size: 12px;
+  padding: 7px 15px; 
+  opacity: .7;
+}
+/*------------작가 페이지 -------*/
+.propicker_service{
+  margin-top: 100px;
+}
+.gallery_right .change > button.btn{
+  margin: 0 15px;
+  padding: 13px 22px;
+  border-radius: 0;
+  font-size: 14px
+}
+.gallery_right .change > button.btn-dark:hover{
+  background: #ddd;
+  color: #343a40;
+}
+
+div.other_images{
+  display: block;
+  position: relative;
+}
+
+div#content2 {
+  position: relative;
+  margin-top: 50px;
+  width: 90%;
+  margin-bottom: 100px;
+}
+#content2 > .row .btn-group{
+  width: 100%;
+}
+#content2 > .row .btn{
+  border: 3px dotted #ddd;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  margin: 0 .5rem;
+  padding: .8rem;
+  display: block;
+  background: #eee;
+  cursor: pointer;
+}
+.other_images{
+  margin-top: 8rem;
+}
+.other_img_list{
+  display: flex;
+  margin-top: 3rem;
+}
+
+.other_img_list div.picture{
+  width: 20%;
+  flex-grow: 1;
+  margin-right: 1rem;
+  margin-left: 1rem;
+} 
+.other_img_list .picture a{
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.other_img_list .picture img{
+  width: 100%;
+} 
+
+/*
+@media(max-width: 480px){
+  #main .in_box {
+  display: block;
+  }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

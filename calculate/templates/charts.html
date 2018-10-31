@@ -1,0 +1,282 @@
+
+<div id="cart_div"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+<script type="text/javascript">
+
+
+
+$(document).ready(function(){
+    var endpoint = '{% url "calculate:api-chart-data" %}'
+    var defaultData = []
+    var labels = [];
+    var year = $('#year').text();
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        data:{
+            'year': year,
+        },
+        success: function(data){
+            labels = data.labels
+            defaultData = data.default
+            var ctx = document.getElementById("myChart");
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '# 정산',
+                        data: defaultData,
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                    }]
+                }
+            }) 
+        },
+        error: function(error_data){
+            console.log("error")
+            console.log(error_data)
+        }
+    })
+    $(".d").click(function(){
+        var year = $('#year').text();
+        var endpoint = '{% url "calculate:api-chart-data" %}'
+        var defaultData = []
+        var labels = [];
+        $.ajax({ 
+            method: "GET",
+            url: endpoint,
+            data:{
+                'year': year,
+            },
+             success: function(data){
+            
+            labels = data.labels
+            defaultData = data.default
+            var ctx = document.getElementById("myChart");
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '# 정산',
+                        data: defaultData,
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                    }]
+                }
+            }) 
+        },
+        error: function(error_data){
+            console.log("error")
+            console.log(error_data)
+        }
+    })
+    })
+})
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <div class="btn-group">
+            <button type="button" class="btn btn-secondary d" style="padding: 7px 38px; font-size: 15px;" onclick="myFunction(this)">2016</button>
+            <button type="button" class="btn btn-secondary d" style="padding: 7px 38px; font-size: 15px;" onclick="myFunction2(this)">2017</button>
+            <button type="button" class="btn btn-secondary d" style="padding: 7px 38px; font-size: 15px;" onclick="myFunction3(this)">2018</button>
+            </div>
+            <label for='year' name='year' id = 'year' > 2018 </label>
+            <div class='cal' style="width: 900px; height: 500px">
+                <div class='col-sm-12' url-endpoint='{% url "calculate:api-data" %}'>
+                <canvas id="myChart" ></canvas></div> 
+            </div>
+            <a onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)"> 
+
+            정산 상세내역
+                </a><div style="DISPLAY: none">
+                    <div class="calsodur">정산 내역</div>
+                    <div id="cyear"></div>
+                    {% for item in calculate %}
+                    {{ item }}
+                    <div class="kp"></div>
+                    {% endfor %}
+                </div>
+
+
+            <p>
+                <button type="button"
+                class="btn btn-primary js-create-book"
+                data-url="{% url 'propicker:account' %}">
+                <span class="glyphicon glyphicon-plus"></span>
+                New Account
+            </button>
+        </p>
+            <table class="table" id="book-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>계좌번호</th>
+                        <th>은행</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% include "propicker/account_list.html" %}
+                </tbody>
+            </table>
+
+            <div class="modal fade" id="modal-book">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(".js-create-book").click(function () {
+        var btn = $(this); 
+        $.ajax({
+            url: btn.attr("data-url"),  // <-- AND HERE
+            type: 'get',
+            dataType: 'json',
+            beforeSend: function () {
+                $("#modal-book").modal("show");
+            },
+            success: function (data) {
+                $("#modal-book .modal-content").html(data.html_form);
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        var loadForm = function () {
+            var btn = $(this);
+            $.ajax({
+                url: btn.attr("data-url"),
+                type: 'get',
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#modal-book").modal("show");
+                },
+                success: function (data) {
+                    $("#modal-book .modal-content").html(data.html_form);
+                }
+            });
+        };
+        var saveForm = function () {
+            var form = $(this);
+            $.ajax({
+                url: form.attr("action"),
+                data: form.serialize(),
+                type: form.attr("method"),
+                dataType: 'json',
+                success: function (data) {
+                    if (data.form_is_valid) {
+                        $("#book-table tbody").html(data.html_account_list);
+                        $("#modal-book").modal("hide");
+                    }
+                    else {
+                        $("#modal-book .modal-content").html(data.html_form);
+                    }
+                }
+            });
+            return false;
+        };
+        $(".js-create-book").click(loadForm);
+        $("#modal-book").on("submit", ".js-book-create-form", saveForm);
+        // Update book
+        $("#book-table").on("click", ".js-update-book", loadForm);
+        $("#modal-book").on("submit", ".js-book-update-form", saveForm);
+
+        $("#book-table").on("click", ".js-delete-book", loadForm);
+        $("#modal-book").on("submit", ".js-book-delete-form", saveForm);
+    });
+</script>
+<script type="text/javascript">
+    function myFunction(self) {
+        document.getElementById("year").innerHTML = "2016 ";
+        disable();
+        $(self).addClass('active');
+    }
+    function myFunction2(self) {
+        document.getElementById("year").innerHTML = "2017 ";
+        disable();
+        $(self).addClass('active');
+    }
+    function myFunction3(self) {
+
+        document.getElementById("year").innerHTML = "2018 ";
+        disable();
+        $(self).addClass('active');
+    }
+    function disable(){
+    $('.btn-group').find('button').each(function(d){
+        $(this).removeClass('active');
+    })
+}
+</script>

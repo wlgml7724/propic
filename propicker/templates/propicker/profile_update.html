@@ -1,0 +1,10 @@
+{% load widget_tweaks %}
+
+<form method="post" action="{% url 'propicker:profile_update' form.instance.pk %}" class="js-profile-update-form">
+  {% csrf_token %}
+  
+    {% include 'propicker/profile_form.html'%}
+
+    <button type="submit" class="btn btn-primary">프로필 수정</button>
+
+</form>

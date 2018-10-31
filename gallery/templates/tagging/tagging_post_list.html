@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}tagging_post_list.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "tagging/tag_list.css" %}{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h1><strong color=blue; >#{{ tag.name }}</strong>에 대한 검색결과 입니다.</h1> 
+
+<!--     {% for photo in object_list %}
+    <h2><a href="{{ gallery.get_absolute_url }}">{{ photo.photo_name }}</a></h2>
+    {{ photo.photo_modify_date|date:"N d, Y" }}
+    <p>{{ photo.img_content }}</p>
+    {% endfor %} -->
+
+
+<div class="img-box">
+{% for item in object_list %}
+      <a href="{% url 'gallery:photo_detail' item.id %}">
+          <img src={{ item.img.url }} />
+                
+        </a>
+   {% endfor %}
+
+
+</div> <!-- img-box end-->
+
+
+</div>
+{% endblock %}

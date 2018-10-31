@@ -1,0 +1,48 @@
+.img-box img{
+	width: 200px;
+	height: 200px;
+	margin: 10px;
+}
+div#menu a.search{
+    color: red;
+}
+.img-box{
+	/*border: 2px solid red;*/
+	float: left;
+
+}
+
+.formcontent{
+	/*border:2px solid black;*/
+	position: relative;
+	top:100px;
+	min-height: auto;
+	border-radius: 10px;
+	width: 60%;
+}
+.aligned{
+	position: relative;
+	top: 30px;
+	font-size: 15px;
+	}
+.form-row{
+	position: relative;
+	left: 80px;
+	width: 800px;
+	height: 250px;
+	overflow-y: auto;
+}
+.wp{
+	width: 80px;
+    height: 30px;
+    border: 0px;
+    font-size: 12px;
+    background-color: #ff8080;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    
+}
+
+
+

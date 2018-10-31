@@ -1,0 +1,14 @@
+
+<h2>MY SHOPPING CART </h2>
+{% if cart.count <= 0 %}
+<h1>No Items in your cart yet</h1>
+{% else %}
+<div class="cart-gd">
+    {% for item in Cart.PhotoPayDetail %}
+        <p>{{  }}</p>
+    {% endfor %}
+    <div style="margin-top: 50px; text-align: right;">
+        <a href="/checkout" class="big_button">Checkout</a>
+    </div>
+</div>
+{% endif %}

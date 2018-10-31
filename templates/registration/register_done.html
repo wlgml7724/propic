@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}회원가입 완료{% endblock %}
+
+{% load staticfiles %}
+<!-- css/form.css를 사용 -->
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+<div id="content_log">
+
+    <h1 align="center">환영합니다.</h1>
+    <br>
+    <br>
+    <br>
+    <p align="center"></p>
+	
+	<div class="reg_done">
+	    <a href="{% url 'login' %}">
+			<button>로그인</button>
+	    </a>
+	    <a href="{% url 'home' %}">
+			<button>홈으로</button>
+	    </a>
+    </div>
+
+</div>
+{% endblock %}

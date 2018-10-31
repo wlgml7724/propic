@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}photo_cart.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "photo/cart.css" %}{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<content>
+
+<!-- <h2>MY SHOPPING CART </h2> -->
+
+
+{% if detail.count <= 0 %}
+<br><br><br><br>
+<h1>장바구니가 비어있습니다.</h1>
+{% else %}
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:40%">Product</th>
+                <th style="width:20%">Price</th>
+                <th style="width:8%">Resolution</th>
+                <!-- <th style="width:22%" class="text-center">Subtotal</th> -->
+                <th style="width:20%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for item in detail %}
+                <td data-th="Product">
+                    <div class="row">
+                        <div class="col-sm-4 hidden-xs"><img src="{{ item.photo.img.url }}" alt="..." class="img-responsive"/></div>
+                        <div class="col-sm-8">
+                            <h4 class="nomargin">{{ item.photo.name }}</h4>
+                            <p>{{ ietm.content }}</p>
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">{{ item.quality_price }}</td>
+                <td data-th="Resolution">
+                    {{ item.select_quality }}
+                </td>
+                <td data-th="Subtotal" class="text-center">{{ object.price }}</td>
+                <td class="actions" data-th="">
+                    <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                    <button class="btn btn-danger btn-sm"><a href="{% url 'cart:delete' item.id %}"><i class="fa fa-trash-o"></i></a>  
+                </button>                                
+                </td>
+                
+            </tr>
+        </tbody>
+        {% endfor %}
+        <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center"><strong>Total {{ sum_price }}</strong></td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'gallery:index' %}" %}" class="btn btn-secondary"><i class="fa fa-angle-left"></i> 쇼핑 계속하기 </a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Total {{ sum_price }}</strong></td>
+                <td><a href="#" class="btn btn-warning btn-block">결제하기 <i class="fa fa-angle-right"></i></a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+</content>
+
+{% endif %}
+
+
+
+<script type="text/javascript">
+function pay(){
+    alert("결제가 진행됩니다.");
+    if (price = 0){
+        alert("금액이 0이라서 결제할 수 없습니다.");
+    }else{
+        var IMP = window.IMP; // 생략가능
+        IMP.init('imp08991983'); 
+        IMP.request_pay({
+            merchant_uid : 'merchant_' + new Date().getTime(),
+            name : '{{user.get_full_name}}님의 장바구니 구매',
+            amount : '{{ sum_price }}',
+            buyer_email : '{{user.email}}',
+            buyer_name : '{% firstof user.get_full_name user.get_username %}',
+            buyer_tel : '{{user.propicker.phone}}',
+            m_redirect_url : '{% url "home" %}',
+        }, function(rsp) {
+            if ( rsp.success ) {
+                var msg = '결제가 완료되었습니다.';
+                msg += '고유ID : ' + rsp.imp_uid;
+                msg += '상점 거래ID : ' + rsp.merchant_uid;
+                msg += '결제 금액 : ' + rsp.paid_amount;
+                msg += '카드 승인번호 : ' + rsp.apply_num;
+                msg += '결제방식 : ' + rsp.pay_method;
+                //결제가 완료되면 ajax통신을 해준다.
+                $.ajax({ 
+                    type: "POST", // 데이터를 전송하는 방법을 지정
+                    url: "{% url 'gallery:add_payment' %}", // 통신할 url을 지정
+                    data: {'cart': '{{ detail.cart }}', 
+                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        'merchant_uid ' : rsp.merchant_uid,
+                        'pay_method': rsp.pay_method,
+                        'price' : rsp.paid_amount,
+                    }, // 서버로 데이터 전송시 옵션
+                    dataType: "json", // 서버측에서 전송할 Response 데이터 형식 (json)
+                    success: function(response){
+                        location.href = "{% url 'cart:detail' %}";
+                    },error: function(request, status, error){
+                        alert("통신실패", error);
+                  },
+                }); // $.ajax
+                //  결제가 완료되면 다운로드함으로 이동합니다. 
+                window.location.href = '{%  url "home" %}';
+            } else {
+                var msg = '결제에 실패하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
+            }
+            alert(msg);
+        }); // function(rsp)
+    } // else
+}// function pay()    
+
+</script>
+
+{% endblock %}
+

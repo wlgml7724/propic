@@ -1,0 +1,187 @@
+*{
+	padding: 0;
+	margin: 0;
+	position: static;
+}
+
+
+
+
+.container{
+	margin-top: 70px;
+	width: 90%;
+}
+
+.nav-side{
+	width: 10%;
+	position: absolute;
+	margin-top: 20px;
+	margin-left: -120px;
+	font-size: 15px;
+	
+}
+
+.nav-link{
+	color: Tomato!important;
+
+}
+
+.nav-link:hover{
+	color: gray!important;
+	background: none!important;
+
+}
+
+.nav-link:active{
+	color: gray!important;
+
+}
+
+
+
+
+/*경로*/
+#smnav{
+	background: #fff;
+}
+
+
+
+.row{
+	width: 900px;
+	height: auto;
+	/*margin: 100px 270px;*/
+	margin-top: 100px;
+	margin-left: 500px;
+	padding-left: 200px;
+
+}
+.card{
+	width: auto;
+	height: 350px;
+	border-radius: 0;
+	padding: 30px 20px;
+	background-color: lightgray;
+	border: none;
+	text-align: center;
+}
+
+
+#button{
+	position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
+i{
+	width: 100px;
+	height: auto;
+	font-size: 90px;
+	margin-bottom: 45px;
+	/*margin-left: 28px;*/
+}
+
+.card:hover{
+	background-color: #DF5656;
+	color: white;
+}
+
+.card h3{
+	padding-bottom: 15px;
+	font-weight: bold;
+}
+
+.card p{
+	font-size: 13px;
+}
+
+a:link {text-decoration: none!important;}
+a:visited {text-decoration: none!important;}
+a:hover {text-decoration: none!important;}
+
+
+/*신고_저작권_음란물*/
+
+
+
+/*.container{
+	width: 900px;
+	height: auto;
+	margin-bottom: 100px;
+}*/
+
+
+
+#long_t{
+	font-size: 12.5px;
+	/*margin-left: 15px;*/
+	color: gray;
+	margin-left: 100px;
+	margin-right: 70px;
+}
+
+#c_box{
+	width: 900px;
+	margin-top: 50px;
+	margin-left: 120px;
+}
+
+/*게시글 주소 길이 지정떄매 하나 더 넣음*/
+#inputCity{
+	width: 430px;
+}
+
+.form-control{
+	width: 220px;
+	height: 30px;
+	border-radius: 0;
+}
+
+label{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.custom-file{
+	width: 450px;
+}
+
+
+
+.top_title{
+	
+	padding-left: 100px;
+	padding-top: 10px;
+	/*padding-bottom: 30px;*/
+}
+
+hr{
+	width: 970px;
+	margin-left: 100px;
+}
+
+
+
+
+/*제출하기 버튼*/
+.go{
+	width: 100px;
+	height: auto;
+	text-align: center;
+	background-color: #DF5656;
+	border: 1px solid #DF5656;
+	border-radius: 2px;
+	padding: 10px;
+	position: relative;
+	margin-left: 800px;
+	margin-top: 70px;
+    font-size: 15px;
+    color: white;
+	
+}
+
+.go:hover{
+	background-color: #DF5656;
+	opacity: 0.8;
+}

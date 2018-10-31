@@ -1,0 +1,20 @@
+<div id="themecontent4">
+    {% for users in user_like %}
+    <div class="photo_detail_row"> 
+        <div class="photo_detail_column">
+            <a href="{% url 'gallery:photo_detail' users.id %}">
+            	{% if user.propicker.upload %}
+        <img class="avatar img-circle img-thumbnail" alt="avatar" src="{{ user.propicker.upload.url }}">
+        {% else %}
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-square img-thumbnail" alt="avatar">
+        {% endif %}
+                
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+</script>

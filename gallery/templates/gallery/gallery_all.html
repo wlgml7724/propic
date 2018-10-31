@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}galdlery_all.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "photo/photo-all.css" %}{% endblock %}
+
+{% block content %}
+<div class="co">
+	<section id="photos">
+		{% for item in object_list %}
+    		<a href="{% url 'gallery:photo_detail' item.id %}">
+                <img src='{{ item.img.url }}' style="width:100%">
+            </a>
+        {% endfor %}
+    </section>
+</div>
+  
+{% endblock %}
+

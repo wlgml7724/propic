@@ -1,0 +1,12 @@
+
+
+
+<div id="themecontent4">
+    {% for cart in carts %}
+    <div class="photo_detail_row"> 
+        <div class="photo_detail_column">
+                <img src="{{ cart.photo.img.url }}" />
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,20 @@
+/*____________________id_search__________________________*/
+.formcontent{
+	width: 90%;
+	margin-top: 100px;
+	border: 1px solid red;
+
+}
+.field{
+	font-size: 15px;
+}
+
+h1{
+	text-align: center;
+	margin-top: 30px;
+}
+.field input{
+	font-size : 20px;
+	padding: 15px;
+	text-align: center;
+}

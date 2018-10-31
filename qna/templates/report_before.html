@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}신고_저작권.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "신고.css" %}{% endblock %}
+
+
+{% block content %}
+
+ <!-- 경로 -->
+
+<div class="container">
+    <nav id="smnav">
+      <ol class="breadcrumb" style="background: white;">
+        <li class="breadcrumb-item"><a href="{%url 'home'%}" style="color: #DF5656;">홈</a></li>
+        <li class="breadcrumb-item active" aria-current="page">고객센터</li>
+        <li class="breadcrumb-item active" aria-current="page">신고하기</li>
+      </ol>
+    </nav>
+
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card go2">
+      {% if not user.propicker.phone %}
+      <a href="{% url 'propicker:setting' %}" class="link none" style="color: black;">
+      <script type="text/javascript">
+      $('.none').click(function(){
+        alert('핸드폰 번호를 입력해주세요')
+      })
+      </script>
+      {% else %}
+      <a href="{%url 'qna:copyright'%}" class="link" style="color: black;">
+      {% endif %}
+      <div class="card-body">
+      <i class="far fa-copyright"></i>
+        <h3 class="card-title">권리 침해 신고하기</h3>
+        <p class="card-text">공개 게시물로 인한 명예훼손, 저작권 침해 등
+    본인의 권리침해로 곤란을 겪고 계세요?
+    권리침해 신고를 이용해주세요.</p>
+        <!-- <a href="#" class="btn btn-danger" id="button">Go somewhere</a> -->
+      
+      </div> <!-- card-body -->
+
+    </a>  
+    
+    </div> <!-- card -->
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+    <a href="{%url 'qna:slash'%}" class="link" style="color: black;">
+      <div class="card-body">
+      <i class="far fa-eye-slash"></i>
+        <h3 class="card-title">유해 정보 신고하기</h3>
+        <p class="card-text">음란, 불법 게시물을 발견하셨나요?
+    여러분의 제보로 더 깨끗한 서비스를
+    만들어가도록 노력하겠습니다.</p>
+        <!-- <a href="#" class="btn btn-danger" id="button">Go somewhere</a> -->
+      </div> <!-- card-body -->
+
+    </a>  
+    </div> <!-- card -->
+  </div>
+  </div>
+
+</div>
+
+{% endblock %}

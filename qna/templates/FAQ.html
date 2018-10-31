@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "qna.css" %}{% endblock %}
+
+{% block content %}
+
+
+
+	<div class="container">
+	<!-- 경로 -->
+		<nav id="smnav">
+		  <ol class="breadcrumb" style="background: white;">
+		    <li class="breadcrumb-item"><a href="{%url 'home'%}" style="color: red;">홈</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+		  </ol>
+		</nav>
+	<!-- 제목 -->
+
+	
+		<div class="hd">
+			<h1>자주 찾는 질문(FAQ)</h1>
+			<p>고객님께서 찾으시는 질문에 빠르고 정확한 답변을 제공합니다.</p>
+		</div>
+
+
+			<div class="nav-side">
+				<ul class="nav flex-column">
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:index'%}">FAQ</a>
+				  </li>
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:report'%}">신고하기</a>
+				  </li>
+				</ul>
+			</div>
+
+	<!-- 검색 -->
+		<div class="SearchBox">
+						<!-- <span class="choicePro faq">
+							<label>FAQ검색</label>
+							<span class="ibox">
+								<input type="text" placeholder="검색어를 입력하세요" title="검색어 입력">
+							</span>
+							<button type="button" class="btnSearch" id="searchBtn"><span class="bgSch">조회</span></button>
+						</span> -->
+						<div class="col-lg-12">
+						    <div class="input-group">
+						      <span class="side">FAQ</span>
+						      
+						      <input type="text" class="form-control" id="sc" placeholder="검색어를 입력하세요" aria-label="검색어를 입력하세요" style="border:none; background-color: none; width: 700px;">
+
+						      <span class="input-group-btn">
+						        <button class="btn btn-outline-danger" type="button" style="border:none; color: white;">검색</button>
+						      </span>
+						    </div>
+						</div>
+						<div class="container">
+  						<div class="row">
+							<span class="form-group">
+							    <select class="form-control" id="exampleFormControlSelect1" placeholder="검색어를 입력하세요">
+							      <option>1</option>
+							      <option>2</option>
+							      <option>3</option>
+							    </select>
+							</span>
+							<span class="form-group">
+							    <select class="form-control" id="exampleFormControlSelect2" placeholder="검색어를 입력하세요">
+							      <option>1</option>
+							      <option>2</option>
+							      <option>3</option>
+							    </select>
+							</span>
+							<button type="button" class="btn btn-danger" id="b">검색</button>
+						</div>
+						</div>
+
+
+		</div>
+
+	<!-- 항목 -->
+		<div class="btn-group" role="group" aria-label="기본 예제">
+		  <button type="button">사진</button>
+		  <button type="button">요금</button>
+		</div>
+
+	<!-- 테이블 -->
+		<table class="table table-hover" id="table" style="width: 1000px">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">이름</th>
+		      <th scope="col">성</th>
+		      <th scope="col">아이디</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">1</th>
+		      <td>Mark</td>
+		      <td>Otto</td>
+		      <td>@mdo</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">2</th>
+		      <td>Jacob</td>
+		      <td>Thornton</td>
+		      <td>@fat</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">3</th>
+		      <td colspan="2">Larry the Bird</td>
+		      <td>@twitter</td>
+		    </tr>
+		  </tbody>
+		</table>
+
+
+
+
+		<!-- 카드 -->
+		<div class="card" >
+		  <div class="card-body">
+		    <span><i class="fas fa-check" id="check"></i></span>
+		    <h4 class="card-title">꼭! 읽어보세요</h4>
+		    <p class="card-text">찾으시는 정보가 없으신가요?
+								온라인문의를 통해 문의내용을 접수해 주시면 친절하게 안내해 드립니다.</p>
+		    <a href="#" class="card-link">Card link</a>
+		    <a href="#" class="card-link">Another link</a>
+		  </div>
+		</div>
+
+
+	
+	</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+
+
+
+
+{% endblock %}

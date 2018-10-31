@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}photo_search.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "photo/photo-search.css" %}{% endblock %}
+
+{% block content %}
+<div class="formcontent">
+<!--
+	<h1 style="text-align: center; margin-top: 30px;">키워드로 사진 검색하기</h1>
+
+	<form action="." method="post" style="text-align: center; margin-top: 30px;"> {% csrf_token %}
+		<span style="text-align: center; font-size: 15px;">{{ form.as_table }}</span>
+		<input type="submit" class="wp"value="Submit" placeholder="검색어를 입력하세요.">
+	</form>
+
+	<br/><br/>
+-->
+	{% if object_list %}
+	<h2 style="margin-left: 40px;">'<strong>{{ search_term }}</strong>'의 검색 결과를 찾았습니다.</h2>
+
+	  <br>
+	<div class="img-box">
+
+	{% for photo in object_list %}
+
+      <a href="{% url 'gallery:photo_detail' photo.id %}">
+         <img src={{ photo.img.url }} />
+      </a>
+
+      
+
+   {% endfor %}
+
+	</div> <!-- img-box end-->
+
+	{% elif search_term %}
+		<!-- <b><i>Search Word({{ search_term }}) Not Found !</i></b> -->
+		<h3><i><strong>{{ search_term }}</strong>를 찾을 수 없습니다.</i></h3>
+	{% endif %}
+</div>
+
+{% endblock %}

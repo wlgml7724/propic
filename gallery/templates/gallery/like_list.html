@@ -1,0 +1,15 @@
+<div id="themecontent4">
+    {% for photo in like %}
+    <div class="photo_detail_row"> 
+        <div class="photo_detail_column">
+            <a href="{% url 'gallery:photo_detail' photo.id %}">
+                <img src={{ photo.photo.img.url }} />
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+</script>

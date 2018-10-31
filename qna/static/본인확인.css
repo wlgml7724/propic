@@ -1,0 +1,174 @@
+*{
+	padding: 0;
+	margin: 0;
+	position: static;
+}
+
+.container{
+	margin-top: 70px;
+	width: 90%;
+}
+
+
+/*경로*/
+#smnav{
+	background: #fff;
+}
+
+
+#button{
+	position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
+
+
+
+.container2{
+	width: 90%;
+	height: auto;
+	padding-bottom: 50px;
+	margin-left: 100px;
+}
+
+
+.button_group{
+	margin-left: 170px;
+}
+
+.button {
+    border: none;
+    color: white;
+    width: 270px;
+    height: 80px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 50px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.button4:hover {
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 2px 2px 3px gray;
+}
+
+#wp{
+	font-size: 17px;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+small{
+	margin-left: 5px;
+}
+
+#qhs{
+	margin-top: 17px;
+	font-size: 13px;
+}
+
+.row{
+	width: 815px;
+	padding-left: 115px;
+	margin-top: 70px;
+	margin-bottom: 80px;
+
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 15px;
+    border: 1px solid black;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+
+.go{
+	width: 220px;
+	height: auto;
+	text-align: center;
+	background-color: #DF5656;
+	border: 1px solid #DF5656;
+	padding: 10px 30px;
+	
+}
+
+.go:hover{
+	background-color: #DF5656;
+	opacity: 0.8;
+	color: white;
+}
+
+.row2{
+	position: right;
+	margin-left: 800px;
+}
+
+.column2 {
+    float: left;
+    width: auto;;
+    padding: 15px;
+    text-align: center;
+	font-size: 15px;
+	color: white;
+}
+
+/* Clear floats after the columns */
+.row2:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+a:link {text-decoration: none!important;}
+a:visited {text-decoration: none!important;}
+a:hover {text-decoration: none!important;}
+
+
+
+
+
+
+hr{
+	width: 970px;
+	margin-left: 100px;
+}
+
+.top_title{
+	
+	padding-left: 100px;
+	padding-top: 10px;
+	/*padding-bottom: 30px;*/
+}
+
+p{
+	font-size: 13px;
+	color: gray;
+}

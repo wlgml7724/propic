@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}photasdfsao_list.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "mypic/mypic.css" %}{% endblock %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% block content %}
+
+<div id="content">
+  <div class="row">
+    <div class="col-md-2">
+
+      <div class="profile-box ">
+
+        
+        <span class="profile_img ">
+          {% if user.propicker.upload %}
+        <img class="avatar img-circle img-thumbnail" alt="avatar" src="{{ user.propicker.upload.url }}">
+        {% else %}
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        {% endif %}
+        </span>
+        <a href="{% url 'propicker:setting' %}">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-cog"></span> 
+        </button>
+        </a>
+        
+       
+        
+        <h1>{{ user.username }}<br>{{ user.email }}<br></h1>
+
+         <ul class="list-group">
+            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+          </ul> 
+      </div>
+    </div>
+    <div class="col-md-9" id="mypic-tab">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">게시물</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" id="like-img-tab" data-toggle="tab" href="#like-img" role="tab" aria-controls="like-img" aria-selected="false">사진 좋아요</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="like-propicker-tab" data-toggle="tab" href="#like-propicker" role="tab" aria-controls="like-propicker" aria-selected="false">작가 좋아요</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="down-tab" data-toggle="tab" href="#down" role="tab" aria-controls="down" aria-selected="false">다운로드</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">정산</a>
+      </li>
+    </ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    {% include 'gallery/gallery_change_list.html'  %}
+  </div>
+  <div class="tab-pane" id="like-img" role="tabpanel" aria-labelledby="like-img-tab">
+    {% include 'gallery/like_list.html' %}
+  </div>
+  <div class="tab-pane" id="like-propicker" role="tabpanel" aria-labelledby="like-propicker-tab">
+    {% include 'propicker/like.html' %}
+    
+  </div>
+  <div class="tab-pane" id="down" role="tabpanel" aria-labelledby="messages-tab">
+    {% include 'gallery/download.html' %}
+    
+  </div>
+  <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+    {% include 'charts.html' %}
+  </div>
+</div><!-- tab-content -->
+  </div> <!-- col -->
+</div> <!-- row -->
+    
+</div>
+
+{% endblock %}
+

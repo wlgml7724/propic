@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}photasdfsao_list.html{% endblock %}
+
+
+{% block content %}
+
+<div id="content">
+<div class="container bootstrap snippet">
+    <div class="row">
+      <div class="col-sm-10"><h1>{{ user.username }}</h1></div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">         
+        <ul class="nav nav-tabs flex-column">
+          <li class="active"><a data-toggle="tab" href="#home">프로필 수정</a></li>
+          <li><a data-toggle="tab" href="#messages">정보 수정</a></li>
+          <li><a data-toggle="tab" href="#settings">신고현황</a></li>
+          <li><a data-toggle="tab" href="#qna">QNA</a></li>
+        </ul>
+        <a href="{%  url 'password_change' %}"><button>비밀번호 변경</button></a>          
+    </div><!--/col-3-->
+      <div class="col-sm-9">              
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <span id="propicker_cotent"></span>               
+             </div><!--/tab-pane-->
+             <div class="tab-pane" id="messages">
+                <span id="user_cotent"></span>
+             </div><!--/tab-pane-->
+             <div class="tab-pane" id="settings">
+                {% for item in report %}    
+                {% if item.punish == 3  %}
+                1
+                {% elif item.punish == 0 %}
+                2
+                {% elif item.punish == 1 %}
+                2
+                {% elif item.punish == 2 %}
+                2
+                {% endif %} 
+                {% endfor %}         
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript">
+    $(document).ready(function() { 
+        $.ajax({
+            url: "{% url 'propicker:user_update' user.id %}",  // <-- AND HERE
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $("#user_cotent").html(data.userhtml_form);
+            }
+        }),
+        $.ajax({
+            url: "{% url 'propicker:profile_update' user.id %}",  // <-- AND HERE
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $("#propicker_cotent").html(data.propickerhtml_form);
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        var loadForm = function () {
+            var btn = $(this);
+            $.ajax({
+                url: "{% url 'propicker:user_update' user.id %}",
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    $("#user_cotent").html(data.userhtml_form);
+                    $("#propicker_cotent").html(data.propickerhtml_form);
+                }
+            });
+        };
+        var saveForm = function () {
+            var form = $(this);
+            alert("변경되었습니다.")
+            $.ajax({
+                url: form.attr("action"),
+                data: form.serialize(),
+                type: form.attr("method"),
+                dataType: 'json',
+                success: function (data) {
+
+                },
+                error: function(request, status, error){ // 통신 실패시 - 로그인 페이지 리다이렉트
+                  window.location.replace("/propicker/setting/")
+                },
+            });
+            return false;
+        };
+        // Update book
+        
+        $("#user_cotent").on("submit", ".js-user-update-form", saveForm);
+        $("#propicker_cotent").on("submit", ".js-profile-update-form", saveForm);
+    });
+</script>
+{% endblock %}

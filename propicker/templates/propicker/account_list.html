@@ -1,0 +1,26 @@
+{% for account in accounts %}
+  <tr>
+    <td>i</td>
+    <td>{{ account.user_account_num }}</td>
+    <td>{{ account.user_account_bank }}</td>
+    <td style="width: 150px">
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-book"
+              data-url="{% url 'propicker:account_update' account.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+    </td>
+    <td style="width: 150px">
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-book"
+              data-url="{% url 'propicker:account_delete' account.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+
+  <tr>
+    <td colspan="7" class="text-center bg-warning">No Account</td>
+  </tr>
+{% endfor %}

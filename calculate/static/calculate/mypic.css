@@ -1,0 +1,69 @@
+
+/* nav tab */
+#ko{
+    top: 1px;
+    background: white;
+    color: black;
+    
+}
+
+ul li{
+    color: black!important;
+}
+#do{
+    color: black!important;
+}
+li.nav-item:hover ul > li.active{
+    background: balck!important;
+    color: white;
+}
+
+
+.profile-box{
+	text-align: center;
+	margin: 5rem .5rem 0 .5rem;
+	padding: 2rem .5rem 5rem .5rem;
+	border-radius: 5px;
+	border-width: 12px;
+}
+.profile-box .profile_img {
+	border-radius: 100%;
+	display:inline-block;
+	padding: 0.5rem;
+	width: 120%;
+	height: initial;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1.5px solid rgba(150, 150, 150, .8);
+	margin-bottom: 3rem;
+	margin-top: 1.5rem;
+}
+.profile-box .profile_img img{
+	width: 100%;
+	border-radius: 100%;
+	display: block;
+}
+.profile-box h1{
+	font-size: 1.5rem;
+	font-weight: 250;
+	margin-bottom: 1.5rem;
+	line-height: 3rem;
+}
+
+.profile-box button{
+	margin-top: 10px;
+	padding: 8px 15px;
+	font-size: 15px;
+}
+
+
+.cal{
+  top: 1px;
+    background: white;
+    color: black;
+    height: 50px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.calsodur{
+	margin-top: 50px;
+}

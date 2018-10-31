@@ -1,0 +1,164 @@
+*{
+	position: relative;
+	border: 0;
+	margin: 0;
+}
+
+.container{
+	margin-top: 70px;
+	width: 90%;
+}
+
+.nav-side-qna{
+	width: 10%;
+	position: absolute;
+	margin-top: 20px;
+	margin-left: -120px;
+	font-size: 15px;
+	
+}
+
+.nav-link{
+	color: Tomato!important;
+
+}
+
+.nav-side .nav-link:hover{
+	color: gray!important;
+	background: none!important;
+
+}
+
+
+.nav-side .nav-link:active{
+	color: gray!important;
+
+}
+
+
+/*경로*/
+#smnav{
+	background: #fff;
+}
+/*제목*/
+.hd{
+	padding-left: 100px;
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+h2{
+	color : Tomato;
+}
+p{
+	color: gray;
+	font-size: 13px;
+}
+
+
+/*검색*/
+
+div.SearchBox{
+	width: 1000px;
+	height: 180px;
+	margin: 20px 50px;
+	margin-right: 0;
+    padding: 30px 50px;
+    border: 1px solid lightgray;
+}
+.side{
+	width: 100px;
+	margin-top: 5px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.input-group{
+	border:none;
+	font-size: 15px;
+}
+
+#exampleFormControlSelect1{
+	border-radius: 0;
+	width: 389px;
+	height: 40px;
+	margin-left: 0;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+#exampleFormControlSelect2{
+	border-radius: 0;
+	width: 389px;
+	height: 40px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+.col-lg-12{
+	background-color: Tomato;
+	height: 70px;
+	padding: 20px 30px;
+	color: white;
+}
+#sc{
+	background-color: Tomato;
+	color: white;
+	width: 700px;
+	padding-left: 0;
+	margin-left: 0;
+}
+#b{
+	width: 100px;
+	height: 40px;
+	margin-left: 10px;
+	margin-top: 10px;
+	border-radius: 0;
+	border: none;
+	background-color: Tomato;
+}
+
+/*항목*/
+.btn-group{
+	margin: 50px 50px;
+	margin-bottom: 30px;
+
+}
+
+.btn-group button{
+	margin-top: 30px;
+	background-color: white;
+	width: 500px;
+	height: 50px;
+	border: 1px solid black;
+	border-bottom: none; 
+	font-weight: bold;
+}
+
+
+/*테이블*/
+table{
+	width: 1000px;
+	margin-top: 0;
+	margin: 10px 50px;
+}
+/*카드*/
+.card{
+	width: 1000px;
+	height: 150px;
+	margin: 70px 50px;
+	background-color: #F2F2F2;
+	border: none;
+	border-radius: 0;
+}
+.card-link{
+	color: Tomato;
+}
+
+#check{
+	color: Tomato;
+}
+
+.card-body{
+	margin-left: 35px;
+	margin-top: 10px;
+}
+

@@ -1,0 +1,271 @@
+
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.errornote {
+    display: block;
+    position: absolute;
+    display: block;
+    margin: 5px 20px;
+    border: 1px solid #c30;
+    background: lightgray;
+    padding: 5px 25px;
+    color: #c30;
+    font-size: 10px;
+    font-weight: bold;
+    top: -30px;
+    left: 380px;
+}
+
+/* Authentication Forms */
+/* register.html */
+/* 인증 폼 */
+
+div#content_log {
+    /*outline: 2px solid red;*/
+    display: block;
+    position: relative;
+    margin: 100px auto;
+    max-width: 1000px;
+    min-width: 700px;
+    top: 50px;
+    /*left: 50px;*/
+    /*border: 2px solid black;*/
+    border-radius: 10px;
+    padding: 50px 30px;
+    margin-bottom: 200px;
+}
+
+.log_explain{
+    display: block;
+    text-align: left;
+    margin: 0 0 30px 70px;
+    font-weight: bold;
+}
+.aligned{
+    /*outline: 3px solid red;*/
+    padding-left: 30px;
+    border: 0;
+    margin: 0;
+}
+.reg-label{
+    float: left;
+    width: 170px;
+    padding: 10px 10px 0 0;
+    font-size: 15px;
+}
+
+.form-row, .form-row2{
+    margin-bottom: 15px;
+    padding-left: 50px;
+}
+.form-row input{
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    width: 300px;
+    height: 40px;
+    padding: 5px 10px;
+}
+.form-row2 input{
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    width: 140px;
+    height: 40px;
+    padding: 5px 10px;
+    margin-right: 20px;
+}
+.form-gender select{
+    display: block;
+    position: relative;
+    float : left;
+    padding: 0 20px;
+    border-radius: 5px;
+    height: 40px;
+}
+/*.form-gender label{
+    position: absolute;
+    left: -100px;
+    width: 120px;
+    border: 1px solid red;
+    z-index: 10;
+}*/
+.form-gender input{
+    width: 20px;
+    height: 20px;
+    left: 5px;
+}
+
+input.sex_check{
+    position: relative;
+    width: 100px;
+    left: 20px;
+    border: 1px solid #aaa;
+    border-radius: 1px;
+    border: 2px solid #9.59.59.5;
+}
+.form-row .reg_check{
+    border-radius: 5px;
+    background-color: #eee;
+    border-radius: 5px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.form-row .reg_check:hover{
+    background-color: #888;
+    color: white;
+}
+
+.submit-row {
+    display: block;
+    position: relative;
+    margin: 50px;
+    text-align: right;
+}
+
+.submit-row input, .submit-row button{
+    margin: 10px;
+    background: #555;
+    font-size: 15px;
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    color: white;
+
+}
+
+.submit-row input:hover, .submit-row button:hover{
+    background-color: #eee;
+    color: black;
+}
+
+#reg_info_context{
+    position: relative;
+    font-size: 13px;
+    height: 250px;
+    width: 800px;
+    padding: 15px;
+    overflow:auto;
+    border: 1px solid #aaa;
+}
+
+/* register_done.html */
+.reg_done{
+    position: relative;
+    left: 35%;
+}
+.reg_done a button{
+    align-content: center;
+    margin: 10px;
+    background: #555;
+    font-size: 15px;
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    color: white;
+}
+
+.reg_done a button:hover{
+    background-color: #eee;
+    color: black;
+}
+
+
+/* login.html */
+
+.ad{
+    position: relative;
+    float: right; 
+    /*border: 1px solid black; */
+    width: 400px; 
+    height: 300px; 
+    left: 500px;
+    top: -150px;
+}
+.ad img{
+    width: 400px;
+    /*height: 300px;*/
+}
+
+.submit-log{
+    display: block;
+    position: relative;
+    text-align: left;
+    left: 75px;
+    /*top: 10px;*/
+
+}
+.submit-log input{
+    background: #555;
+    font-size: 13px;
+    padding: 5px 20px;
+    width: 300px;
+    height: 32px;
+    border-radius: 5px;
+    border: 0px solid #555;
+    color: white;
+    margin-top:2px; 
+}
+#log-bottom{
+    position: relative;
+    top: 30px;
+    left: 75px;
+}
+
+.log_reg{
+    position: relative; 
+    top: 30px; 
+    left: -320px;
+    /*border-bottom: 1px solid black; */
+    width: 285px;
+    padding: 5px;
+}
+#log-bottom > input, #log-bottom > a{
+    display: block;
+    position: relative;
+    float: left;
+    /*outline: 1px solid red;*/
+    height: 20px;
+}
+#log-bottom > a{
+    top: 5px;
+    left: 5px;
+}
+
+
+
+
+/*photo change*/
+#content_change{
+    position: center;
+    margin: 170px auto;
+    padding: 20px;
+
+}
+h1#change{padding-bottom: 20px;}
+
+
+
+/*   register_before.html   */
+table input{
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+tr input{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+tr input:hover{
+    background-color: black;
+    color: white;
+
+}
+
+*/

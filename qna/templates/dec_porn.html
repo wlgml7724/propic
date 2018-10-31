@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}유해정보 신고하기{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "신고.css" %}{% endblock %}
+
+{% block content %}
+{% if form.is_multipart %}
+    <form action="." enctype="multipart/form-data" method="post">
+    {% else %}
+    <form action="." method="post">
+    {% endif %}
+    {% csrf_token %}
+
+    {% if form.errors %}
+    <p class="errornote">Wrong! Please correct the error(s) below.</p>
+    {% endif %}
+
+ <!-- 경로 -->
+ <div class="container">
+		<nav id="smnav">
+		 <nav id="smnav">
+		  <ol class="breadcrumb" style="background: white;">
+		    <li class="breadcrumb-item"><a href="{%url 'home'%}" style="color: red;">홈</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">고객센터</li>
+		    <li class="breadcrumb-item active" aria-current="page">신고하기</li>
+		    <li class="breadcrumb-item active" aria-current="page">음란물</li>
+		  </ol>
+		</nav>
+
+<!-- 제목 -->
+
+		<h1 class="top_title">유해정보 신고하기</h1>
+		<hr>
+
+<!-- 내용 -->
+
+	<div class="nav-side">
+
+				<ul class="nav flex-column">
+				 
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:report'%}">신고하기</a>
+				  </li>
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:copyright'%}">저작권</a>
+				  </li>
+				  <li class="nav-item-s">
+				    <a class="nav-link" href="{%url 'qna:slash'%}">음란물</a>
+				  </li>
+				</ul>
+	</div>
+
+
+	<div id="long_t">
+		<li>허위 신고자는 서비스 이용에 제한을 받습니다. 신중하게 신고해주세요.</li>
+		<li>명예훼손이나 저작권 침해 신고는 여기를 클릭하세요.</li>
+		<li>그 외, 유해정보신고 처리 및 절차 관련 궁금한 사항은 클린센터 도움말을 확인해주세요.</li>
+		<li>다른 회사의 URL 및 올바르지 않은 URL은 신고 접수·처리가 되지 않습니다.</li>
+		<li>(필수)로 표시된 부분은 반드시 입력해주셔야 합니다.</li>
+	</div>
+		<!-- 입력란 -->
+	
+		<form id="c_box">
+
+			<fieldset class="aligned">
+        <div class="form-row">
+            <span>사진 url: </span>
+            <span>{{ form.photo }}</span>
+        </div>
+
+        
+
+        <div class="form-row">
+            <span>신고 내용</span>
+            <span>{{ form.report_text }}</span>
+        </div>
+
+        <div class="form-row">
+            <span>파일 </span>
+            <span>{{ form.report_file }}</span>
+        </div>
+		<div class="form-group">
+		    <div class="form-check">
+		      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+		      <label class="form-check-label" for="invalidCheck">
+		        이용약관에 동의하세요.
+		      </label>
+		      <div class="invalid-feedback">
+		        제출 전 동의는 필수 항목입니다.
+		      </div>
+		</div>
+	  </div>
+	  <div class="submit-row">
+        <input type="submit" value="Submit">
+    </div>
+
+		</form>
+</div>
+
+</body>
+
+</html>
+
+
+{% endblock %}

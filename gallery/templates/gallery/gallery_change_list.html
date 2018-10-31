@@ -1,0 +1,18 @@
+
+<div id="themecontent4">
+    <div class="photo_add"><a href="{% url 'gallery:add'%}"><p>+</p></a></div>
+    {% for photo in gallery %}
+    <div class="photo_detail_row"> 
+        <div class="photo_detail_column">
+            <img src="{{ photo.img.url }}" />
+            <div class="overlay">
+                <div class="text">
+                    <button class="up" style="color: white"><a href="{% url 'gallery:update' photo.id %}">Update</a></button>
+                    <button class="up"><a href="{% url 'gallery:delete' photo.id %}">Delete</a></button>   
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+ 

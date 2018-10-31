@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}로그아웃{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+<div id="content_log">
+	
+    <div class="log_explain">
+        <h1 style="text-align: center">로그아웃이 되었습니다.</h1>
+        <br>
+        <br>
+        
+	</div>
+    
+    <div class="reg_done">
+    	<a href="{% url 'login'%}">
+            <button type="button">로그인</button>
+        </a>
+        <a href="{% url 'home'%}">
+            <button type="button">홈으로</button>
+        </a>
+        
+    </div>
+
+</div><!-- content_log -->
+
+{% endblock %}

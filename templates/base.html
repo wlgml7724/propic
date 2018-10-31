@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<title>{% block title %}Django Web Programming{% endblock %}</title>
+
+{% load staticfiles %}
+<!--css 사용하는 파일-->
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/base.css' %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+<!--지우지말기 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<!-- 구글 웹 폰트 중, navigation -->
+<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
+<!-- font awsome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+
+
+
+</head>
+<script>
+// 스크롤을 내리면 네비게이션에 효과를 줌 .scroll_nav에 설정을 주면된다
+$(window).scroll(function() {    
+    // scrollTop = 스크롤 위치
+    var scroll = $(window).scrollTop();
+    if (scroll >= 50) {
+        $(".navbar").addClass("scroll_nav");
+    } else {
+        $(".navbar").removeClass("scroll_nav");
+    }
+});
+</script>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'img/logo.jpg' %}" class="logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item Gallery">
+                <!-- 마우스 오버가 nav-link로 설정되어 있음  -->
+                <a class="nav-link " href="{% url 'gallery:index' %}"> Gallery </a>
+            </li>
+            <li class="nav-item Propicker">
+                <a class="nav-link" href="{% url 'propicker:index' %}">Propicker</a>
+            </li>
+            <li class="nav-item Theme">
+                <a class="nav-link" href="{% url 'theme:index' %}">Theme</a>
+            </li>
+            
+            
+            {% if user.is_active %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'gallery:change' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mypic</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item mypage" href="{% url 'mypic:index' %}">{% firstof user.get_full_name user.get_username %}'s page</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'cart:detail' %}">CART</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">SITE MAP</a>
+            </div> <!-- dropdown-menu -->
+            {% else %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'login' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">Register</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">SITE MAP</a>
+            </div> <!-- dropdown-menu -->
+            {% endif %}
+            </li>
+            
+            <li class="nav-item">
+               
+
+                
+            </li>            
+        </ul>
+        <form class="form-inline my-2 my-lg-0 a" method="post" action="/gallery/search/">{% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" name="search_word" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+
+           
+
+
+                <!-- dager -->
+                <!-- btn-success -->
+                </form>
+    
+    </div>
+</nav>
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+var context = location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+if(context.indexOf("gallery") != -1)
+{
+    $('.Gallery').addClass('active');
+}else if(context.indexOf("theme") != -1)
+{
+    $('.Theme').addClass('active');
+}
+else if(context.indexOf("propicker") != -1)
+{
+    $('.Propicker').addClass('active');
+}
+    
+});
+</script>  
+<div id="main">
+
+{% block content %}
+{% endblock %}
+{% block footer %}
+
+<div id="footer">
+    <!--footer start from here-->
+    <footer id="base-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 footer-col">
+            <div class="logofooter"> PROPIC</div>
+            <p>저작권 보호 플랫폼.
+               사이트를 이용하는 모든 고객에게 고객의 사진,작품 또는 이외의 사진의 대안이 될 수 있는 모든 창작물의 보호를 약속드립니다.</p>
+            <p><i class="fa fa-map-pin"></i> 서울특별시 성동구 사근동 살곳이길 200</p>
+            <p><i class="fa fa-phone"></i> Phone (KOREA) : +82 02-2290-2114</p>
+            
+          </div>
+          <div class="col-md-3 col-sm-6 footer-col">
+            <h6 class="heading7">LINKS</h6>
+            <ul class="footer-ul">
+              <li><a href="{% url 'home' %}"> Home</a></li>
+              <li><a href="{% url 'gallery:index' %}"> Gallery</a></li>
+              <li><a href="{% url 'propicker:index' %}"> Propicker</a></li>
+              <li><a href="{% url 'theme:index' %}"> Theme</a></li>
+              <li><a href="#"> Mypic</a></li>
+              <li><a href="#"> FAQ</a></li>
+              <li><a href="#"> SITEMAP</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6 footer-col">
+            <h6 class="heading7">LATEST POST</h6>
+            <div class="post">
+              <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
+              <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
+              <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2015</span></p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 footer-col">
+            <h6 class="heading7">Social Media</h6>
+            <ul class="footer-social">
+              <li><i class="fa fa-linkedin social-icon linked-in" aria-hidden="true"></i></li>
+              <li><i class="fa fa-facebook social-icon facebook" aria-hidden="true"></i></li>
+              <li><i class="fa fa-twitter social-icon twitter" aria-hidden="true"></i></li>
+              <li><i class="fa fa-google-plus social-icon google" aria-hidden="true"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--footer start from here-->
+
+    <div class="copyright">
+      <div class="container">
+        <div class="col-md-6">
+          <p>© 2016 - All Rights with prabuuideveloper</p>
+        </div>
+        <div class="col-md-6">
+          <ul class="bottom_ul">
+            <li><a href="#">prabuuideveloper.com</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Faq's</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+{% endblock %}
+
+{% include 'base/js.html' %}
+
+
+</div>
+
+
+
+<a id="MOVE_TOP_BTN" href="#">TOP</a>
+
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 500) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
+        
+        $("#MOVE_TOP_BTN").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+

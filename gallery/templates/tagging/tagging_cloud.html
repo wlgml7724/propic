@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}tagging_cloud.html{% endblock %} 
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "tagging/tag.css" %}{% endblock %}
+
+
+{% block content %}
+<div id="content">
+
+    <h1>Photo Tag</h1>
+
+    <dlv class="tag-cloud">
+        {% load tagging_tags %}
+        {% tag_cloud_for_model photo.Gallery as tags with steps=6 min_count=1 distribution=log %}
+        {% for tag in tags %}
+        <span class="tag-{{ tag.font_size }}">
+            <a href="{% url 'gallery:tagged_object_list' tag.name %}">{{ tag.name }} ({{ tag.font_size }})</a>
+        </span>
+        {% endfor %}
+    </dlv>
+</div>
+{% endblock %}
